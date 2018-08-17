@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.jboss.set.gradle44.subproject
+Bundle-Version: 1.0.1.redhat-1
+Bundle-Name: subproject
+Implementation-Version: 1.0.1-redhat-1
+Bundle-ManifestVersion: 2
+Bnd-LastModified: 1534412864000
+Import-Package: io.undertow.client
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Created-By: 1.8.0_181 (Oracle Corporation)
+Tool: Bnd-3.4.0.201707252008
+

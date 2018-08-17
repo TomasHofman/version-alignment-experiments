@@ -1,0 +1,52 @@
+initscript {
+    repositories {
+        mavenLocal()
+    }
+
+    dependencies {
+        classpath "org.jboss.set.gradle:version-manipulation-plugin4:1.0-SNAPSHOT"
+    }
+}
+
+allprojects {
+    apply plugin: org.jboss.set.gradle4.versionmanipulation.VersionManipulationPlugin
+//    apply plugin: org.gradle.api.plugins.MavenPlugin
+
+    /*task createPomInit {
+        doLast {
+            pom {
+                project {
+                    groupId project.group
+                    artifactId project.name
+                    version project.version
+
+                    licenses {
+                        license {
+                            name 'The Apache Software License, Version 2.0'
+                            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                            distribution 'repo'
+                        }
+                    }
+                }
+            }.writeTo("pom.xml")
+        }
+    }*/
+
+
+    /*install.repositories.mavenInstaller.pom*.whenConfigured { pom ->
+        for (dep in pom.dependencies) {
+            dep.setVersion(dep.getVersion() + "-th")
+            println dep
+        }
+    }*/
+
+    task resolveAllConfigs {
+        doLast {
+            configurations.findAll {
+                // Add any custom filtering on the configurations to be resolved
+                it.canBeResolved
+            }.each { it.resolve() }
+        }
+    }
+
+}
